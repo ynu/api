@@ -1,0 +1,23 @@
+{
+  "name": "ynu-api",
+  "version": "0.0.1",
+  "description": "a API Client for YNU",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynu/api.git"
+  },
+  "keywords": [
+    "ynu",
+    "api"
+  ],
+  "author": "na57 <na57@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ynu/api/issues"
+  },
+  "homepage": "https://github.com/ynu/api#readme"
+}
