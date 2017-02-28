@@ -1,3 +1,5 @@
+import Client, { returnCodes, composeData } from 'ynu-ws-client';
+
 export const port = process.env.PORT || 3000;
 export const host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`;
 
@@ -11,4 +13,12 @@ export const wsToken = {
 export const interfaces = {
   // 获取组织机构列表
   zzjg: '810000001',
+
+  // 时间范围内应还图书借阅信息查询，需要认证
+  yhts_by_timespan: '810000002',
+
+  // 时间范围内应还图书统计
+  yhts_tj_by_timespan: '810000003',
 };
+
+export const client = new Client(wsToken);

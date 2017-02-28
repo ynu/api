@@ -5,11 +5,13 @@
 
 ## URL Schema
 所有API都使用以下URL Schema：
-`http://api.ynu.edu.cn/<moudle>/<version>/<interface>`
+`http://api.ynu.edu.cn/<moudel>/[/<sub_moudel]<version>/<interface>[?<params>]`
 
-- `moudle` 为方面组织，所有公共API都被分组在特定的模块里；
+- `moudel` 为方面组织，所有公共API都被分组在特定的模块里；
+- `sub_moudel` 子模块；
 - `version` 为避免今后api更改，每个模块的API都设定版本号；
-- `interface` 每个模块包括很多接口，每个接口都提供不同的功能。
+- `interface` 每个模块包括很多接口，每个接口都提供不同的功能；
+- ``
 
 例如，调用standard模块的zzjg接口：
 `http://api.ynu.edu.cn/standard/v1/zzjg`
@@ -26,3 +28,4 @@
 | ecard | 一卡通系统 | v1 |
 | elearning | 网络教学平台 | v1 |
 | email | 电子邮件 | v1 |
+| library | 图书馆 | v1 |
