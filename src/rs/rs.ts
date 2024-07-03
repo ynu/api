@@ -1,4 +1,3 @@
-import process from 'node:process';
 import axios from 'axios';
 import Debug from 'debug';
 import {GetToken, getToken} from "../index";

@@ -1,6 +1,6 @@
-import process from 'node:process';
+import * as process from 'node:process';
 import axios from 'axios';
-import cache from "memory-cache";
+import * as cache from "memory-cache";
 import Debug from "debug";
 const debug = Debug('api:debug');
 const warn = Debug('api:warn');
