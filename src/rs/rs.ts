@@ -5,6 +5,7 @@ import {filterNullParams} from "../util";
 import {JzgListQueryParams, JzgListResultParams} from "./type/jzg_list";
 import {JzgDetailQueryParams, JzgDetailResultParams} from "./type/jzg_detail";
 import {DmQueryParams, DmResultParams, DmDqztdmResultParams} from "./type/dm";
+import {XpxgListQueryParams, XpxgListResultParams} from "./type/xpxg_list";
 
 const debug = Debug('ids::debug');
 
@@ -27,12 +28,15 @@ export const getJzgList = async (params: JzgListQueryParams, options: GetToken):
  */
 export const getJzgDetail = async (params: JzgDetailQueryParams, options: GetToken): Promise<JzgDetailResultParams[] | any> => {
     const token = await getToken(options);
-    const queryString = params.zgh?params.zgh.map(item => `zgh=${item}`).join('&'):'';
-    const res = await axios.get(`${options.host}/v1/rs/detail_jzg?${queryString}`, {
+    // const queryString = params.zgh?params.zgh.map(item => `zgh=${item}`).join('&'):'';
+    const res = await axios.post(`${options.host}/v1/rs/detail_jzg`, {
+        ...params,
+    }, {
         headers: {
             Authorization: token,
         },
-    });
+        timeout: 60000
+    })
     return res.data.data;
 }
 
@@ -133,4 +137,20 @@ export const getGbzwjb = async (params: DmQueryParams, options: GetToken): Promi
     });
     return res.data.data;
 }
+
+/**
+ * 获得人获取校聘校管人员列表
+ */
+export const getXpxgList = async (params: XpxgListQueryParams, options: GetToken): Promise<XpxgListResultParams[] | any> => {
+    const token = await getToken(options);
+    const res = await axios.get(`${options.host}/v1/rs/lis_xpxg`, {
+        headers: {
+            Authorization: token,
+        },
+        params: filterNullParams(params),
+    });
+    return res.data.data;
+}
+
+
 
