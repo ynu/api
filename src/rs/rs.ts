@@ -28,15 +28,12 @@ export const getJzgList = async (params: JzgListQueryParams, options: GetToken):
  */
 export const getJzgDetail = async (params: JzgDetailQueryParams, options: GetToken): Promise<JzgDetailResultParams[] | any> => {
     const token = await getToken(options);
-    // const queryString = params.zgh?params.zgh.map(item => `zgh=${item}`).join('&'):'';
-    const res = await axios.post(`${options.host}/v1/rs/detail_jzg`, {
-        ...params,
-    }, {
+    const queryString = params.zgh?params.zgh.map(item => `zgh=${item}`).join('&'):'';
+    const res = await axios.get(`${options.host}/v1/rs/detail_jzg?${queryString}`, {
         headers: {
             Authorization: token,
         },
-        timeout: 60000
-    })
+    });
     return res.data.data;
 }
 
