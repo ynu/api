@@ -9,9 +9,9 @@ export type XpxgListQueryParams = {
 }
 
 /**
- * 获取校聘校管人员列表返回结果参数
+ * 获取校聘校管人员列表响应结果
  */
-export type XpxgListResultParams = {
+export type XpxgListResult = {
     /**
      * 单位
      */

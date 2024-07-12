@@ -17,9 +17,9 @@ export type JzgListQueryParams = {
 }
 
 /**
- * 教职工列表返回结果参数
+ * 教职工列表响应结果
  */
-export type JzgListResultParams = {
+export type JzgListResult = {
     /**
      * 姓名
      */

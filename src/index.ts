@@ -53,3 +53,5 @@ export const getToken = async (options: GetToken): Promise<string> => {
 
 export * as House from './house/house';
 export * as Rs from './rs/rs';
+export * as Bks from './bks/bks';
+export * as Yjs from './yjs/yjs';

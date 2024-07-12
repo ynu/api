@@ -2,16 +2,16 @@ import axios from 'axios';
 import Debug from 'debug';
 import {GetToken, getToken} from "../index";
 import {filterNullParams} from "../util";
-import {BuildingDetailQueryParams, BuildingDetailResultParams} from "./type/building_detail";
-import {RoomDetailQueryParams, RoomDetailResultParams} from "./type/room_detail";
-import {DmQueryParams, DmResultParams, DmUnitAndClassResultParams} from "./type/dm";
+import {BuildingDetailQueryParams, BuildingDetailResult} from "./type/building_detail";
+import {RoomDetailQueryParams, RoomDetailResult} from "./type/room_detail";
+import {DmQueryParams, DmResult, DmUnitAndClassResult} from "./type/dm";
 
 const debug = Debug('ids::debug');
 
 /**
  * 获得资实处房产系统的房间信息
  */
-export const getRoomDetail = async (params: RoomDetailQueryParams, options: GetToken): Promise<RoomDetailResultParams[] | any> => {
+export const getRoomDetail = async (params: RoomDetailQueryParams, options: GetToken): Promise<RoomDetailResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/house/detail_room`, {
         headers: {
@@ -25,7 +25,7 @@ export const getRoomDetail = async (params: RoomDetailQueryParams, options: GetT
 /**
  * 获得资实处房产系统的楼栋信息
  */
-export const getBuildingDetail = async (params: BuildingDetailQueryParams, options: GetToken): Promise<BuildingDetailResultParams[] | any> => {
+export const getBuildingDetail = async (params: BuildingDetailQueryParams, options: GetToken): Promise<BuildingDetailResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/rs/detail_jzg?`, {
         headers: {
@@ -39,7 +39,7 @@ export const getBuildingDetail = async (params: BuildingDetailQueryParams, optio
 /**
  * 获得资实处房产系统的组织机构代码
  */
-export const getUnitCode = async (params: DmQueryParams, options: GetToken): Promise<DmUnitAndClassResultParams[] | any> => {
+export const getUnitCode = async (params: DmQueryParams, options: GetToken): Promise<DmUnitAndClassResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/house/dm_unitcode`, {
         headers: {
@@ -53,7 +53,7 @@ export const getUnitCode = async (params: DmQueryParams, options: GetToken): Pro
 /**
  * 获得资实处房产系统的高基表代码
  */
-export const getClassCode = async (params: DmQueryParams, options: GetToken): Promise<DmUnitAndClassResultParams[] | any> => {
+export const getClassCode = async (params: DmQueryParams, options: GetToken): Promise<DmUnitAndClassResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/rs/dm_zzmmdm`, {
         headers: {
@@ -67,7 +67,7 @@ export const getClassCode = async (params: DmQueryParams, options: GetToken): Pr
 /**
  * 获得资实处房产系统的产权性质代码
  */
-export const getPropertyRightType = async (params: DmQueryParams, options: GetToken): Promise<DmResultParams[] | any> => {
+export const getPropertyRightType = async (params: DmQueryParams, options: GetToken): Promise<DmResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/house/dm_property_right_type`, {
         headers: {
@@ -81,7 +81,7 @@ export const getPropertyRightType = async (params: DmQueryParams, options: GetTo
 /**
  * 获得资实处房产系统的取得方式代码
  */
-export const getAcquisitionMode= async (params: DmQueryParams, options: GetToken): Promise<DmResultParams[] | any> => {
+export const getAcquisitionMode= async (params: DmQueryParams, options: GetToken): Promise<DmResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}/v1/house/dm_acquisition_mode`, {
         headers: {

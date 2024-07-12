@@ -6,6 +6,7 @@ import { Rs } from '../src';
 import {JzgListQueryParams} from "../src/rs/type/jzg_list";
 import {JzgDetailQueryParams} from "../src/rs/type/jzg_detail";
 import {DmQueryParams} from "../src/rs/type/dm";
+import {XpxgListQueryParams} from "../src/rs/type/xpxg_list";
 
 const {
     API_HOST,
@@ -30,9 +31,17 @@ describe('Rs-人事', function() {
     });
     it('教职工详情查询', async () => {
         const params: JzgDetailQueryParams = {
-            zgh: []
+            zgh: ['']
         }
         const res = await Rs.getJzgDetail(params, options);
+        console.log(res)
+        ok(Array.isArray(res));
+    });
+    it('教职工详情查询-全字段', async () => {
+        const params: JzgDetailQueryParams = {
+            zgh: ['']
+        }
+        const res = await Rs.getJzgFullDetail(params, options);
         console.log(res)
         ok(Array.isArray(res));
     });
@@ -90,6 +99,14 @@ describe('Rs-人事', function() {
         }
         const res = await Rs.getGbzwjb(params, options);
         console.log("人事系统专业技术职务级别，党政职务代码：", res)
+        ok(Array.isArray(res));
+    });
+    it('获取校聘校管人员列表', async () => {
+        const params: XpxgListQueryParams = {
+            dep: '2012'
+        }
+        const res = await Rs.getXpxgList(params, options);
+        console.log("获取校聘校管人员列表：", res)
         ok(Array.isArray(res));
     });
 });

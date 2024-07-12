@@ -25,9 +25,9 @@ export type RoomDetailQueryParams = {
 }
 
 /**
- * 资实处房产系统的房间信息返回结果参数
+ * 资实处房产系统的房间信息响应结果
  */
-export type RoomDetailResultParams = {
+export type RoomDetailResult = {
     /**
      * 所属楼栋
      */

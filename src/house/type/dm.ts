@@ -9,9 +9,9 @@ export type DmQueryParams = {
 }
 
 /**
- * 资实处房产系统代码返回结果参数，包括产权性质，取得方式
+ * 资实处房产系统代码响应结果，包括产权性质，取得方式
  */
-export type DmResultParams = {
+export type DmResult = {
     /**
      * 名称
      */
@@ -23,11 +23,11 @@ export type DmResultParams = {
 }
 
 /**
- * 资实处房产系统代码返回结果参数，包括组织机构，高基表
+ * 资实处房产系统代码响应结果，包括组织机构，高基表
  */
-export type DmUnitAndClassResultParams = {
+export type DmUnitAndClassResult = {
     /**
      * 父级代码
      */
     parentcode: string,
-} & DmResultParams
+} & DmResult

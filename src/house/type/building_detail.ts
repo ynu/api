@@ -9,9 +9,9 @@ export type BuildingDetailQueryParams = {
 }
 
 /**
- * 资实处房产系统的楼栋信息返回结果参数
+ * 资实处房产系统的楼栋信息响应结果
  */
-export type BuildingDetailResultParams = {
+export type BuildingDetailResult = {
     /**
      * 取得方式
      */
