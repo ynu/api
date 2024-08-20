@@ -4,6 +4,7 @@ import {filterNullParams} from "../util";
 import {YjsBasicQueryParams, YjsBasicResult} from "./type/yjs_basic"; 
 import {YjsListQueryParams, YjsListResult} from "./type/yjs_list";
 import {YjsFullQueryParams, YjsFullResult} from "./type/yjs_full";
+import {DmQueryParams, DmResult} from "./type/yjs_dm";
 
 /**
  * 查询在校研究生名单
@@ -43,6 +44,20 @@ export const getYjsFull = async (params: YjsFullQueryParams, options: GetToken):
         headers: {
             Authorization: token,
         },
+    });
+    return res.data.data;
+}
+
+/**
+ * 获得在校研究生的组织机构代码
+ */
+export const getYjsYxdm = async (params: DmQueryParams, options: GetToken): Promise<DmResult[] | any> => {
+    const token = await getToken(options);
+    const res = await axios.get(`${options.host}/v1/yjs/dm_yxdm`, {
+        headers: {
+            Authorization: token,
+        },
+        params: filterNullParams(params),
     });
     return res.data.data;
 }

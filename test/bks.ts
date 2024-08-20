@@ -5,6 +5,7 @@ import { ok } from 'node:assert';
 import { Bks } from '../src';
 import {BksListQueryParams} from "../src/bks/type/bks_list";
 import {BksBasicQueryParams} from "../src/bks/type/bks_basic";
+import {DmQueryParams} from "../src/bks/type/bks_dm";
 
 const {
     API_HOST,
@@ -39,6 +40,14 @@ describe('bks-本科生', function() {
             xh: [""]
         }
         const res = await Bks.getBksFull(params, options);
+        console.log(res)
+        ok(Array.isArray(res));
+    });
+    it('查询本科生的组织架构信息', async () => {
+        const params: DmQueryParams = {
+            dm: ""
+        }
+        const res = await Bks.getBksYxdm(params, options);
         console.log(res)
         ok(Array.isArray(res));
     });

@@ -5,6 +5,7 @@ import { ok } from 'node:assert';
 import { Yjs } from '../src';
 import {YjsListQueryParams} from "../src/yjs/type/yjs_list";
 import {YjsBasicQueryParams} from "../src/yjs/type/yjs_basic";
+import {DmQueryParams} from "../src/yjs/type/yjs_dm";
 
 const {
     API_HOST,
@@ -39,6 +40,14 @@ describe('yjs-研究生', function() {
             xh: [""]
         }
         const res = await Yjs.getYjsFull(params, options);
+        console.log(res)
+        ok(Array.isArray(res));
+    });
+    it('查询本科生的组织架构信息', async () => {
+        const params: DmQueryParams = {
+            dm: ""
+        }
+        const res = await Yjs.getYjsYxdm(params, options);
         console.log(res)
         ok(Array.isArray(res));
     });
