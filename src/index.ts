@@ -55,3 +55,4 @@ export * as House from './house/house';
 export * as Rs from './rs/rs';
 export * as Bks from './bks/bks';
 export * as Yjs from './yjs/yjs';
+export * as Projects from './projects/projects';
