@@ -4,7 +4,6 @@ import { after, describe, it } from 'node:test';
 import { ok } from 'node:assert';
 import { Approval } from '../src';
 import {ApprovalStatisticsParams} from "../src/approval/type/approval_statistics";
-
 const {
     API_HOST,
     API_KEY,
@@ -43,6 +42,14 @@ describe('approval-企业微信审批信息', function() {
             template_id: 'C4UAWEDGT6EPqvE8FD8SBxXnGokdByrJcmyYTCsBm',
         }
         const res = await Approval.getApprovalRecordList(params, options);
+        console.log(res);
+        ok(res.length);
+    });
+    it('查询审批模板', async () => {
+        const params: ApprovalStatisticsParams = {
+            template_id: 'C4UAWEDGT6EPqvE8FD8SBxXnGokdByrJcmyYTCsBm',
+        }
+        const res = await Approval.getApprovalTemplateList(params, options);
         console.log(res);
         ok(res.length);
     });

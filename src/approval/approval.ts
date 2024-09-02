@@ -4,6 +4,7 @@ import {GetToken, getToken} from "../index";
 import {filterNullParams} from "../util";
 import {ApprovalStatisticsParams, ApprovalStatisticsResult} from "./type/approval_statistics";
 import {ApprovalRecordParams, ApprovalRecordResult} from "./type/approval_record";
+import {ApprovalTemplateParams, ApprovalTemplateResult} from "./type/approval_template";
 
 const debug = Debug('ids::debug');
 
@@ -40,6 +41,20 @@ export const getApprovalStatisticsList = async (params: ApprovalStatisticsParams
 export const getApprovalRecordList = async (params: ApprovalRecordParams, options: GetToken): Promise<ApprovalRecordResult[] | any> => {
     const token = await getToken(options);
     const res = await axios.get(`${options.host}//v1/it/wecom/record`, {
+        headers: {
+            Authorization: token,
+        },
+        params: filterNullParams(params)
+    });
+    return res.data.data;
+}
+
+/**
+ * 查询审批模板
+ */
+export const getApprovalTemplateList = async (params: ApprovalTemplateParams, options: GetToken): Promise<ApprovalTemplateResult[] | any> => {
+    const token = await getToken(options);
+    const res = await axios.get(`${options.host}//v1/it/wecom/approval_temp_query`, {
         headers: {
             Authorization: token,
         },
